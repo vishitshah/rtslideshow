@@ -98,6 +98,86 @@ class Rtslideshow_Admin {
 
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/rtslideshow-admin.js', array( 'jquery' ), $this->version, false );
 
+		// Localize script with AJAX URL, nonce, and a translatable message
+		wp_localize_script( $this->plugin_name, 'rtslideshowData', array(
+			'ajax_url'       => admin_url( 'admin-ajax.php' ),
+			'nonce'          => wp_create_nonce( 'rtslideshow_save_images_nonce' ),
+			'no_img_message' => esc_html__( 'No images to save.', 'rtslideshow' ),
+			'fail_message' 	 => esc_html__( 'Request failed.', 'rtslideshow' )
+		));
+
+	}
+
+	/**
+	 * To display the admin side page to upload images
+	 *
+	 * @since    1.0.0
+	 */
+	public function rtslideshow_display_admin_page() {
+
+		add_menu_page(
+			esc_html__('Upload Images', 'rtslideshow'), // Page title with escaping
+			esc_html__('Upload Images', 'rtslideshow'), // Menu title with escaping
+			'manage_options', // Capability
+			'upload-images-admin', // Slug
+			array($this, 'rtslideshow_showpage') // Display function
+		);
+	}
+
+	/**
+	 * Helper function that loads the admin page to display
+	 *
+	 * @since    1.0.0
+	 */
+	public function rtslideshow_showpage() {
+
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/partials/rtslideshow-admin-display.php';
+
+	}
+
+	/**
+	 * Register the media uploader and sortable scripts/styles for admin area
+	 *
+	 * @since    1.0.0
+	 */
+	public function rtslideshow_media_and_sortable_scripts() {
+
+		wp_enqueue_media();
+        wp_enqueue_script('jquery-ui-sortable');
+	}
+
+	/**
+	 * Handles the saving of slideshow images via AJAX.
+	 *
+	 * @since 1.0.0
+	 */
+	function rtslideshow_save_images() {
+
+		// Ensure the nonce is unslashed and verified correctly
+		if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( wp_unslash( $_POST['nonce'] ), 'rtslideshow_save_images_nonce' ) ) {
+			wp_send_json_error( esc_html__( 'Invalid request.', 'your-text-domain' ) );
+			wp_die(); // Terminate the script to avoid further execution
+		}
+
+
+		// Check if images data is provided and is an array
+		if ( isset( $_POST['images'] ) && is_array( $_POST['images'] ) ) {
+
+			// Unsplash the images array to prevent slashes being added
+			$images = wp_unslash( $_POST['images'] );
+
+			// Sanitize each image URL
+			$sanitized_images = array_map( 'esc_url_raw', $images );
+
+			// Update the option with sanitized data
+			update_option( 'rtslideshow_images', $sanitized_images );
+
+			// Send success response
+			wp_send_json_success( esc_html__( 'Images saved successfully!', 'rtslideshow' ) );
+		} else {
+			wp_send_json_error( esc_html__( 'No images provided.', 'rtslideshow' ) );
+		}
+
 	}
 
 }

@@ -14,7 +14,6 @@
  *
  * @wordpress-plugin
  * Plugin Name:       RtSlideshow
- * Plugin URI:        https://wordpress.org/plugins/rtslideshow/
  * Description:       Challenge-1: WordPress-Slideshow Plugin
  * Version:           1.0.0
  * Author:            Vishit Shah
