@@ -100,4 +100,33 @@ class Rtslideshow_Public {
 
 	}
 
+	/**
+	 * Register the shortcode
+	 *
+	 * @since    1.0.0
+	 */
+    public function rtslideshow_register_shortcodes() {
+
+        add_shortcode( 'myslideshow', array( $this, 'rtslideshow_slideshow_shortcode' ) );
+    }
+
+    /**
+	 * Define the output of the shortcode
+	 *
+	 * @since    1.0.0
+	 */
+    public function rtslideshow_slideshow_shortcode($atts) {
+        
+		ob_start();
+		$images = get_option('my_slideshow_images', []);
+
+		if (empty($images)) {
+			echo esc_html__('No images in the slideshow.', 'rtslideshow');
+		} else {
+			include plugin_dir_path(__FILE__) . 'partials/rtslideshow-public-display.php';
+		}
+		return ob_get_clean();
+
+    }
+
 }
