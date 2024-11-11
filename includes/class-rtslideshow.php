@@ -179,7 +179,7 @@ class Rtslideshow {
 
 		$plugin_public = new Rtslideshow_Public( $this->get_plugin_name(), $this->get_version() );
 
-		// Function that provides markup for the slider shortcode.
+		// Function that provides markup for the slider shortcode. [myslideshow]
 		$this->loader->add_action( 'init', $plugin_public, 'rtslideshow_register_shortcodes' );
 
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );

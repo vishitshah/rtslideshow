@@ -115,12 +115,12 @@ class Rtslideshow_Public {
 	 *
 	 * @since    1.0.0
 	 */
-    public function rtslideshow_slideshow_shortcode($atts) {
+    public function rtslideshow_slideshow_shortcode( $atts ) {
         
 		ob_start();
-		$images = get_option('my_slideshow_images', []);
+		$images = get_option( 'my_slideshow_images', [] );
 
-		if (empty($images)) {
+		if ( empty( $images ) ) {
 			echo esc_html__('No images in the slideshow.', 'rtslideshow');
 		} else {
 			include plugin_dir_path(__FILE__) . 'partials/rtslideshow-public-display.php';

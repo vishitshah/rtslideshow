@@ -30,15 +30,15 @@
 	 */
 
 	$(document).ready(function($) {
-		var $images = $('#my-slideshow img');
+		var $images = $( '#my-slideshow img' );
 		var i = 0;
 		function showNextImage() {
-			$images.eq(i).fadeOut(1000);
+			$images.eq(i).fadeOut( 1000 );
 			i = (i + 1) % $images.length;
 			$images.eq(i).fadeIn(1000);
 		}
 		$images.hide().first().show();
-		setInterval(showNextImage, 3000);
+		setInterval( showNextImage, 3000 );
 	});
 
 })( jQuery );
