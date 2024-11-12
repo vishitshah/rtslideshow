@@ -158,10 +158,10 @@ class Rtslideshow {
 		$this->loader->add_action( 'admin_menu', $plugin_admin, 'rtslideshow_display_admin_page' );
 
 		// Enqueue media uploader and sortable scripts/styles for admin side
-		$this->loader->add_action('admin_enqueue_scripts', $plugin_admin, 'rtslideshow_media_and_sortable_scripts');
+		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'rtslideshow_media_and_sortable_scripts' );
 
 		// Images save ajax in admin side
-		$this->loader->add_action('wp_ajax_rtslideshow_save_images', $plugin_admin, 'rtslideshow_save_images');
+		$this->loader->add_action( 'wp_ajax_rtslideshow_save_images', $plugin_admin, 'rtslideshow_save_images' );
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );

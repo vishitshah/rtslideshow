@@ -155,7 +155,7 @@ class Rtslideshow_Admin {
 
 		// Ensure the nonce is unslashed and verified correctly
 		if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( wp_unslash( $_POST['nonce'] ), 'rtslideshow_save_images_nonce' ) ) {
-			wp_send_json_error( esc_html__( 'Invalid request.', 'your-text-domain' ) );
+			wp_send_json_error( esc_html__( 'Invalid request.', 'rtslideshow' ) );
 			wp_die(); // Terminate the script to avoid further execution
 		}
 
