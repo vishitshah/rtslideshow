@@ -121,9 +121,9 @@ class Rtslideshow_Public {
 		$images = get_option( 'my_slideshow_images', [] );
 
 		if ( empty( $images ) ) {
-			echo esc_html__('No images in the slideshow.', 'rtslideshow');
+			echo esc_html__( 'No images in the slideshow.', 'rtslideshow');
 		} else {
-			include plugin_dir_path(__FILE__) . 'partials/rtslideshow-public-display.php';
+			include plugin_dir_path( __FILE__ ) . 'partials/rtslideshow-public-display.php';
 		}
 		return ob_get_clean();
 

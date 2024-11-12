@@ -29,12 +29,12 @@
 	 * practising this, we should strive to set a better example in our own work.
 	 */
 
-	$(document).ready(function($) {
+	$( document ).ready( function($) {
 		
 		var frame;
-		$('#add-image-button').on('click', function(e) {
+		$( '#add-image-button' ).on( 'click', function(e) {
 			e.preventDefault();
-			if (frame) {
+			if ( frame ) {
 				frame.open();
 				return;
 			}
@@ -61,7 +61,7 @@
 		});
 	
 		$( '#slideshow-images' ).on( 'click', '.remove-image', function() {
-			$(this).closest( '.slideshow-image' ).remove();
+			$( this ).closest( '.slideshow-image' ).remove();
 		});
 	
 		$( '#slideshow-images' ).sortable();

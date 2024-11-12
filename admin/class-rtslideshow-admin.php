@@ -116,11 +116,11 @@ class Rtslideshow_Admin {
 	public function rtslideshow_display_admin_page() {
 
 		add_menu_page(
-			esc_html__('Upload Images', 'rtslideshow'), // Page title with escaping
-			esc_html__('Upload Images', 'rtslideshow'), // Menu title with escaping
+			esc_html__( 'Upload Images', 'rtslideshow' ), // Page title with escaping
+			esc_html__( 'Upload Images', 'rtslideshow' ), // Menu title with escaping
 			'manage_options', // Capability
 			'upload-images-admin', // Slug
-			array($this, 'rtslideshow_showpage') // Display function
+			array( $this, 'rtslideshow_showpage' ) // Display function
 		);
 	}
 
