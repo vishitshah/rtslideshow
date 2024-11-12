@@ -143,7 +143,7 @@ class Rtslideshow_Admin {
 	public function rtslideshow_media_and_sortable_scripts() {
 
 		wp_enqueue_media();
-        wp_enqueue_script('jquery-ui-sortable');
+        wp_enqueue_script( 'jquery-ui-sortable' );
 	}
 
 	/**

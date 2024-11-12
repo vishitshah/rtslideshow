@@ -1,4 +1,4 @@
-(function( $ ) {
+( function( $ ) {
 	'use strict';
 
 	/**
@@ -45,11 +45,11 @@
 				},
 				multiple: true
 			});
-			frame.on('select', function() {
-				var attachments = frame.state().get('selection').toArray();
-				attachments.forEach(function(attachment) {
+			frame.on( 'select', function() {
+				var attachments = frame.state().get( 'selection' ).toArray();
+				attachments.forEach( function( attachment ) {
 					var url = attachment.attributes.url;
-					$('#slideshow-images').append(`
+					$( '#slideshow-images' ).append(`
 						<li class="slideshow-image" data-url="${url}">
 							<img src="${url}" style="max-width: 100px;" />
 							<button class="remove-image">Remove</button>
@@ -60,23 +60,23 @@
 			frame.open();
 		});
 	
-		$('#slideshow-images').on('click', '.remove-image', function() {
-			$(this).closest('.slideshow-image').remove();
+		$( '#slideshow-images' ).on( 'click', '.remove-image', function() {
+			$(this).closest( '.slideshow-image' ).remove();
 		});
 	
-		$('#slideshow-images').sortable();
+		$( '#slideshow-images' ).sortable();
 
 
-		$('#save-images-button').on('click', function() {
+		$( '#save-images-button' ).on('click', function() {
 			const imagesArray = []; // Populate this array with the image URLs as needed
 
 			// Collect each image URL from the data-url attribute
-			$('#slideshow-images .slideshow-image').each(function() {
-				imagesArray.push($(this).data('url'));
+			$( '#slideshow-images .slideshow-image' ).each( function() {
+				imagesArray.push( $( this ).data( 'url' ));
 			});
-        
+
 			// Check if there are any images to save
-			if (imagesArray.length === 0) {
+			if ( imagesArray.length === 0 ) {
 				alert( rtslideshowData.no_img_message );
 				return;
 			}
@@ -86,8 +86,8 @@
 				images: imagesArray,
 				nonce: rtslideshowData.nonce // Use the nonce here
 			})
-			.done(function(response) {
-				if (response.success) {
+			.done( function( response ) {
+				if ( response.success ) {
 					alert( response.data ); // Success message
 				} else {
 					alert( response.data ); // Error message
