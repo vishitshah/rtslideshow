@@ -16,7 +16,7 @@
 <!-- This file should primarily consist of HTML with a little bit of PHP. -->
 
 <div class="wrap">
-    <h1><?php echo esc_html__( 'My Slideshow Settings', 'rtslideshow' ); ?></h1>
+    <h1><?php esc_html_e( 'My Slideshow Settings', 'rtslideshow' ); ?></h1>
     <div id="slideshow-images-container">
         <ul id="slideshow-images">
             <?php

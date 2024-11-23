@@ -16,7 +16,9 @@
 <!-- This file should primarily consist of HTML with a little bit of PHP. -->
 
 <div id="rtslideshow-wrap" class="rtslideshow-wrap">
-    <?php foreach ( $images as $image_url ): ?>
-        <img class="" src="<?php echo esc_url( $image_url ); ?>">
-    <?php endforeach; ?>
+    <?php if( !empty( $images ) ) { ?>
+        <?php foreach ( $images as $image_url ): ?>
+            <img class="" src="<?php echo esc_url( $image_url ); ?>">
+        <?php endforeach; ?>
+    <?php } ?>
 </div>
