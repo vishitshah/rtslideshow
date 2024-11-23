@@ -2,7 +2,7 @@
 Contributors: vishitshah
 Donate link: https://vishitshah.com/
 Tags: slidershow, 
-Requires at least: 3.0.1
+Requires at least: 5.0
 Tested up to: 6.7.1
 Stable tag: 1.0.0
 License: GPLv2 or later
