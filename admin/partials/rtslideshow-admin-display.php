@@ -25,7 +25,7 @@
                 foreach ( $images as $image_url ) {
                     $image_url = esc_url( $image_url ); // Escape URL before output
                     echo '<li class="slideshow-image" data-url="' . esc_attr( $image_url ) . '">
-                            <img src="' . esc_url( $image_url ) . '" style="max-width: 100px;" alt="' . esc_attr__( 'Slideshow Image', 'rtslideshow' ) . '" />
+                            <img src="' . esc_url( $image_url ) . '" alt="' . esc_attr__( 'Slideshow Image', 'rtslideshow' ) . '" />
                             <button class="remove-image">' . esc_html__( 'Remove', 'rtslideshow' ) . '</button>
                           </li>';
                 }

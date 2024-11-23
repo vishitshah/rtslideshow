@@ -30,7 +30,7 @@
 	 */
 
 	$( document ).ready( function($) {
-		var $images = $( '#my-slideshow img' );
+		var $images = $( '#rtslideshow-wrap img' );
 		var i = 0;
 		function showNextImage() {
 			$images.eq( i ).fadeOut( 1000 );

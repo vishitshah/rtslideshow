@@ -51,7 +51,7 @@
 					var url = attachment.attributes.url;
 					$( '#slideshow-images' ).append(`
 						<li class="slideshow-image" data-url="${url}">
-							<img src="${url}" style="max-width: 100px;" />
+							<img src="${url}" />
 							<button class="remove-image">Remove</button>
 						</li>
 					`);
