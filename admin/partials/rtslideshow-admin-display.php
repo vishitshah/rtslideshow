@@ -24,16 +24,18 @@
             if ( is_array( $images ) ) { // Ensure $images is an array
                 foreach ( $images as $image_url ) {
                     $image_url = esc_url( $image_url ); // Escape URL before output
-                    echo '<li class="slideshow-image" data-url="' . esc_attr( $image_url ) . '">
-                            <img src="' . esc_url( $image_url ) . '" alt="' . esc_attr__( 'Slideshow Image', 'rtslideshow' ) . '" />
-                            <button class="remove-image">' . esc_html__( 'Remove', 'rtslideshow' ) . '</button>
-                          </li>';
+                    ?>
+                        <li class="slideshow-image" data-url="<?php echo esc_attr( $image_url ); ?>">
+                            <img src="<?php echo esc_url( $image_url ); ?>" alt="<?php echo esc_attr__( 'Slideshow Image', 'rtslideshow' ); ?>" />
+                            <button class="remove-image"><?php esc_html_e( 'Remove', 'rtslideshow' ); ?></button>
+                        </li>
+                    <?php
                 }
             }
             ?>
         </ul>
     </div>
-    <button id="add-image-button" class="button"><?php echo esc_html__( 'Add Image', 'rtslideshow' ); ?></button>
-    <button id="save-images-button" class="button button-primary"><?php echo esc_html__( 'Save Changes', 'rtslideshow' ); ?></button>
+    <button id="add-image-button" class="button"><?php esc_html_e( 'Add Image', 'rtslideshow' ); ?></button>
+    <button id="save-images-button" class="button button-primary"><?php esc_html_e( 'Save Changes', 'rtslideshow' ); ?></button>
 </div>
 
