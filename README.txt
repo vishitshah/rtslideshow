@@ -8,9 +8,7 @@ Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-== Description ==
-
-A simple plugin to add a slideshow of images on the frontend using the [myslideshow] shortcode. Admin can upload and reorder images from the settings page.
+A simple plugin to add a slideshow of images on the frontend using the [myslideshow] shortcode.
 
 == Installation ==
 

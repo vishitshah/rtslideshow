@@ -23,13 +23,13 @@
             $images = get_option( 'rtslideshow_images', [] );
             if ( is_array( $images ) ) { // Ensure $images is an array
                 foreach ( $images as $image_url ) {
-                    $image_url = esc_url( $image_url ); // Escape URL before output
-                    ?>
-                        <li class="slideshow-image" data-url="<?php echo esc_attr( $image_url ); ?>">
-                            <img src="<?php echo esc_url( $image_url ); ?>" alt="<?php echo esc_attr__( 'Slideshow Image', 'rtslideshow' ); ?>" />
-                            <button class="remove-image"><?php esc_html_e( 'Remove', 'rtslideshow' ); ?></button>
-                        </li>
-                    <?php
+                    $template_file = plugin_dir_path( __DIR__ ) . 'templates/rtslideshow-image-item.php';
+                    
+                    if ( file_exists( $template_file ) ) {
+                        
+                        set_query_var( 'image_url', $image_url );
+                        load_template( $template_file, false );
+                    }
                 }
             }
             ?>
